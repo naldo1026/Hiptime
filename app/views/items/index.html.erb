@@ -1,7 +1,9 @@
-<div>
+<% if user_signed_in? %>
   <% @items.each do |item| %>
     <h2><%= link_to item.title , item %></h2>
     <p><%= item.description %></p>
     <%= time_ago_in_words(item.created_at) %> ago
   <% end %>
-</div>
+<% else %>
+  <%= render 'welcome_page' %>
+<% end %>
